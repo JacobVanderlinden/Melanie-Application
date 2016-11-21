@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DiagnosisViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class DiagnosisViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         processingIndicator.startAnimating()
-        nnSender()
+        getMoleData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,122 +39,45 @@ class DiagnosisViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func nnSender() {
+    
+    func getMoleData() {
         upload(moleImage)
-        //wait
         //nevus.text =
         //dysplasticnevus.text =
         //melanoma.text =
-        
+    }
+    
+    func upload(image:UIImage) {
+        let imageData:NSData = UIImageJPEGRepresentation(image, 100)!
+        SRWebClient.POST("http://8374d8af.ngrok.io")
+            .data(imageData, fieldName:"image", data: ["timestamp":NSDate()])
+            .send({(response:AnyObject!, status:Int) -> Void in
+                print(response)
+                // process success response
+                self.updateLabels((response["nevus"] as? NSNumber)!.doubleValue, dn: (response["dysplasticnevus"] as? NSNumber)!.doubleValue, m: (response["melanoma"] as? NSNumber)!.doubleValue)
+                },failure:{(error:NSError!) -> Void in
+                // process failure response
+                print(error)
+            })
         
     }
     
-    func upload(image: UIImage){
-        let url = NSURL(string: "http://de34fa5b.ngrok.io/image")
-        
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        let imageData = UIImagePNGRepresentation(image)
-        let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-        //print(base64String)
-        let postString = "image=" + base64String
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                print("error=\(error)")
-                return
-            }
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
-            
-            let responseString = String(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-        }
-        task.resume()
+    func updateLabels(n: Double, dn: Double, m: Double) {
+        // Create text
+        let nevusText = String(format:"%.4f", n * 100)
+        let dysplasticText = String(format:"%.4f", dn * 100)
+        let melanomaText = String(format:"%.4f", m * 100)
+        // Update text
+        self.nevus.text = "\(nevusText)%"
+        self.dysplasticnevus.text = "\(dysplasticText)%"
+        self.melanoma.text = "\(melanomaText)%"
+        // Hide processing labels
+        self.processingLabel.text = ""
+        self.processingIndicator.hidesWhenStopped = true
+        self.processingIndicator.stopAnimating()
     }
     
     
-//    func upload(image: UIImage) {
-//        
-//        let url = NSURL(string: "http://de34fa5b.ngrok.io/image")
-//        
-//        let request = NSMutableURLRequest(URL: url!)
-//        request.HTTPMethod = "POST"
-//        
-//        let boundary = generateBoundaryString()
-//        
-//        //define the multipart request type
-//        
-//        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//        
-//        //let image_data = UIImageJPEGRepresentation(image, 1)!.base64EncodedStringWithOptions([])
-//        print(image_data)
-//        
-////        if(image_data == nil)
-////        {
-////            return
-////        }
-//        
-//        
-//        let body = NSMutableData()
-//        
-//        let fname = "mole.jpeg"
-//        let mimetype = "image/jpeg"
-//        
-//        //define the data post parameter
-//        
-//        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        body.appendData("Content-Disposition:form-data; name=\"test\"\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        body.appendData("hi\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        
-//        
-//        
-//        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        body.appendData("Content-Disposition:form-data; name=\"file\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        body.appendData(image_data)
-//        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        
-//        
-//        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-//        
-//        
-//        
-//        request.HTTPBody = body
-//        
-//        
-//        
-//        let session = NSURLSession.sharedSession()
-//        
-//        
-//        let task = session.dataTaskWithRequest(request) {
-//            (
-//            let data, let response, let error) in
-//            
-//            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-//                print("error")
-//                return
-//            }
-//            
-//            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-//            print(dataString)
-//            
-//        }
-//        
-//        task.resume()
-//        
-//        
-//    }
-    
-    
-    func generateBoundaryString() -> String
-    {
-        return "Boundary-\(NSUUID().UUIDString)"
-    }
-
     /*
     // MARK: - Navigation
 
