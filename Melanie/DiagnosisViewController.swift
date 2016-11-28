@@ -8,10 +8,11 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class DiagnosisViewController: UIViewController {
     
-    
+    var moles = [NSManagedObject]()
     @IBOutlet weak var moleImageView: UIImageView!
     var moleImage: UIImage!
     @IBOutlet weak var processingIndicator: UIActivityIndicatorView!
@@ -19,6 +20,30 @@ class DiagnosisViewController: UIViewController {
     @IBOutlet weak var nevus: UILabel!
     @IBOutlet weak var dysplasticnevus: UILabel!
     @IBOutlet weak var melanoma: UILabel!
+    @IBAction func save(sender: UIButton) {
+        //1
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("Mole", inManagedObjectContext:managedContext)
+        let mole = NSManagedObject(entity: entity!,  insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        mole.setValue(NSData(data: UIImagePNGRepresentation(moleImage)!), forKey: "mi")
+        mole.setValue(nevus, forKey: "n")
+        mole.setValue(dysplasticnevus, forKey: "dn")
+        mole.setValue(melanoma, forKey: "m")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            moles.append(mole)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class prevDiagnoses: UITableViewController {
 
+    var moles = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,18 +37,50 @@ class prevDiagnoses: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return moles.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! customViewCell
 
-        // Configure the cell...
+        let mole = moles[indexPath.row]
+        let n = mole.valueForKey("n") as? Double
+        let dn = mole.valueForKey("dn") as? Double
+        let m = mole.valueForKey("m") as? Double
+        let mi = mole.valueForKey("mi") as? UIImage
+        
+        
+        cell.nevus.text = "Nevus: \(n)"
+        cell.dysplasticNevus.text = "Dysplastic Nevus: \(dn)"
+        cell.melanoma.text = "Melanoma: \(m)"
+        cell.moleImage.image = mi!
+        
 
-        return cell
+        return cell as UITableViewCell!
     }
-    */
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //1
+        let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "Mole")
+        
+        //3
+        do {
+            let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+            moles = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

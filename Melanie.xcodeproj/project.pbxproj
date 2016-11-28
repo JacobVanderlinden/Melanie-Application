@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		168D44A21DD89E5C0032D641 /* prevDiagnoses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D44A11DD89E5C0032D641 /* prevDiagnoses.swift */; };
+		168D44A81DE3BE460032D641 /* customViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D44A71DE3BE460032D641 /* customViewCell.swift */; };
 		3C298E851DE397CD00C1765A /* SRWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C298E841DE397CD00C1765A /* SRWebClient.swift */; };
 		3C731EC01DD89A76008B65C6 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C731EBF1DD89A76008B65C6 /* DiagnosisViewController.swift */; };
 		3C8AE8AE1DD889C800752046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AE8AD1DD889C800752046 /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		168D44A11DD89E5C0032D641 /* prevDiagnoses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prevDiagnoses.swift; sourceTree = "<group>"; };
+		168D44A71DE3BE460032D641 /* customViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customViewCell.swift; sourceTree = "<group>"; };
 		3C298E841DE397CD00C1765A /* SRWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRWebClient.swift; sourceTree = "<group>"; };
 		3C731EBF1DD89A76008B65C6 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		3C8AE8AA1DD889C800752046 /* Melanie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melanie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 				3C8AE8AF1DD889C800752046 /* ViewController.swift */,
 				3C8AE8C21DD88A7500752046 /* CameraViewController.swift */,
 				168D44A11DD89E5C0032D641 /* prevDiagnoses.swift */,
+				168D44A71DE3BE460032D641 /* customViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				3C8AE8B01DD889C800752046 /* ViewController.swift in Sources */,
 				3C731EC01DD89A76008B65C6 /* DiagnosisViewController.swift in Sources */,
 				168D44A21DD89E5C0032D641 /* prevDiagnoses.swift in Sources */,
+				168D44A81DE3BE460032D641 /* customViewCell.swift in Sources */,
 				3C298E851DE397CD00C1765A /* SRWebClient.swift in Sources */,
 				3C8AE8AE1DD889C800752046 /* AppDelegate.swift in Sources */,
 			);
