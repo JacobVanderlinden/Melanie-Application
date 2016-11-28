@@ -32,7 +32,7 @@ class prevDiagnoses: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,16 +44,18 @@ class prevDiagnoses: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! customViewCell
 
         let mole = moles[indexPath.row]
-        let n = mole.valueForKey("n") as? Double
-        let dn = mole.valueForKey("dn") as? Double
-        let m = mole.valueForKey("m") as? Double
-        let mi = mole.valueForKey("mi") as? UIImage
+        let n = mole.valueForKey("n") as! String
+        let dn = mole.valueForKey("dn") as! String
+        let m = mole.valueForKey("m") as! String
+        let rotated = UIImage(data: mole.valueForKey("mi") as! NSData, scale: 1.0)
+        let mi = UIImage(CGImage: rotated!.CGImage!, scale: 1.0, orientation: UIImageOrientation.Right)
+        
         
         
         cell.nevus.text = "Nevus: \(n)"
         cell.dysplasticNevus.text = "Dysplastic Nevus: \(dn)"
         cell.melanoma.text = "Melanoma: \(m)"
-        cell.moleImage.image = mi!
+        cell.moleImage.image = mi
         
 
         return cell as UITableViewCell!
@@ -82,49 +84,20 @@ class prevDiagnoses: UITableViewController {
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        if (editingStyle == UITableViewCellEditingStyle.Delete){
+            //1
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext = appDelegate.managedObjectContext
+            managedContext.deleteObject(moles[indexPath.row])
+            moles.removeAtIndex(indexPath.row)
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print(error)
+            }
+            tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

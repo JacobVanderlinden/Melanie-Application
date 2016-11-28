@@ -12,7 +12,6 @@ import CoreData
 
 class DiagnosisViewController: UIViewController {
     
-    var moles = [NSManagedObject]()
     @IBOutlet weak var moleImageView: UIImageView!
     var moleImage: UIImage!
     @IBOutlet weak var processingIndicator: UIActivityIndicatorView!
@@ -20,7 +19,8 @@ class DiagnosisViewController: UIViewController {
     @IBOutlet weak var nevus: UILabel!
     @IBOutlet weak var dysplasticnevus: UILabel!
     @IBOutlet weak var melanoma: UILabel!
-    @IBAction func save(sender: UIButton) {
+    @IBOutlet weak var save: UIButton!
+    @IBAction func saveFunc(sender: AnyObject) {
         //1
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -31,19 +31,21 @@ class DiagnosisViewController: UIViewController {
         
         //3
         mole.setValue(NSData(data: UIImagePNGRepresentation(moleImage)!), forKey: "mi")
-        mole.setValue(nevus, forKey: "n")
-        mole.setValue(dysplasticnevus, forKey: "dn")
-        mole.setValue(melanoma, forKey: "m")
+        mole.setValue(nevus.text, forKey: "n")
+        mole.setValue(dysplasticnevus.text, forKey: "dn")
+        mole.setValue(melanoma.text, forKey: "m")
         
         //4
         do {
             try managedContext.save()
+            self.performSegueWithIdentifier("unwindToHome", sender: self)
             //5
-            moles.append(mole)
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,7 @@ class DiagnosisViewController: UIViewController {
         moleImageView.image = moleImage
         processingLabel.alpha = 1
         processingIndicator.alpha = 1
+        save.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +77,7 @@ class DiagnosisViewController: UIViewController {
     
     func upload(image:UIImage) {
         let imageData:NSData = UIImageJPEGRepresentation(image, 100)!
-        SRWebClient.POST("http://8374d8af.ngrok.io")
+        SRWebClient.POST("http://56a76b43.ngrok.io")
             .data(imageData, fieldName:"image", data: ["timestamp":NSDate()])
             .send({(response:AnyObject!, status:Int) -> Void in
                 print(response)
@@ -100,6 +103,8 @@ class DiagnosisViewController: UIViewController {
         self.processingLabel.text = ""
         self.processingIndicator.hidesWhenStopped = true
         self.processingIndicator.stopAnimating()
+        //enable save button
+        self.save.enabled = true
     }
     
     
