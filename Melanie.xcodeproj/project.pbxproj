@@ -17,7 +17,7 @@
 		3C8AE8B61DD889C800752046 /* Melanie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AE8B41DD889C800752046 /* Melanie.xcdatamodeld */; };
 		3C8AE8B81DD889C800752046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C8AE8B71DD889C800752046 /* Assets.xcassets */; };
 		3C8AE8BB1DD889C800752046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8AE8B91DD889C800752046 /* LaunchScreen.storyboard */; };
-		3C8AE8C31DD88A7500752046 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AE8C21DD88A7500752046 /* CameraViewController.swift */; };
+		3CCA844F1DEE091300BDE718 /* MoleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA844E1DEE091300BDE718 /* MoleExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,7 +46,7 @@
 		3C8AE8B71DD889C800752046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C8AE8BA1DD889C800752046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C8AE8BC1DD889C800752046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C8AE8C21DD88A7500752046 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3CCA844E1DEE091300BDE718 /* MoleExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -55,9 +55,7 @@
 			children = (
 				3C731EBF1DD89A76008B65C6 /* DiagnosisViewController.swift */,
 				3C8AE8AF1DD889C800752046 /* ViewController.swift */,
-				3C8AE8C21DD88A7500752046 /* CameraViewController.swift */,
 				168D44A11DD89E5C0032D641 /* prevDiagnoses.swift */,
-				168D44A71DE3BE460032D641 /* customViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -82,8 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				3C8AE8B11DD889C800752046 /* Main.storyboard */,
+				3CCA844E1DEE091300BDE718 /* MoleExampleView.swift */,
 				3C298E841DE397CD00C1765A /* SRWebClient.swift */,
 				3C74F5831DE365F0006AD228 /* ViewControllers */,
+				168D44A71DE3BE460032D641 /* customViewCell.swift */,
 				3C8AE8AD1DD889C800752046 /* AppDelegate.swift */,
 				3C8AE8B71DD889C800752046 /* Assets.xcassets */,
 				3C8AE8B91DD889C800752046 /* LaunchScreen.storyboard */,
@@ -166,10 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C8AE8B61DD889C800752046 /* Melanie.xcdatamodeld in Sources */,
-				3C8AE8C31DD88A7500752046 /* CameraViewController.swift in Sources */,
 				3C8AE8B01DD889C800752046 /* ViewController.swift in Sources */,
 				3C731EC01DD89A76008B65C6 /* DiagnosisViewController.swift in Sources */,
 				168D44A21DD89E5C0032D641 /* prevDiagnoses.swift in Sources */,
+				3CCA844F1DEE091300BDE718 /* MoleExampleView.swift in Sources */,
 				168D44A81DE3BE460032D641 /* customViewCell.swift in Sources */,
 				3C298E851DE397CD00C1765A /* SRWebClient.swift in Sources */,
 				3C8AE8AE1DD889C800752046 /* AppDelegate.swift in Sources */,

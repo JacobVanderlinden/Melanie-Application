@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var moleExample: UIView!
+    var imageTaken: UIImage!
+    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         
     }
@@ -24,6 +27,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func tapDiagnose(sender: AnyObject) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePickerController.delegate = self
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismissViewControllerAnimated(true, completion: nil)
+        self.imageTaken = image
+        performSegueWithIdentifier("diagnoseMole", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "diagnoseMole" {
+            let destination = segue.destinationViewController as! DiagnosisViewController
+            destination.moleImage = imageTaken
+        }
+    }
 
 }
 

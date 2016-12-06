@@ -1,75 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yok-jK-tt4">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yok-jK-tt4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Camera View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="Melanie" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkt-UM-90H">
-                                <rect key="frame" x="0.0" y="64" width="600" height="490"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please try and center your mole so it takes up the majority of the screen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-dZ-ube">
-                                        <rect key="frame" x="138" y="445" width="324" height="52"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rI-7D-Zyg">
-                                <rect key="frame" x="20" y="562" width="560" height="30"/>
-                                <state key="normal" title="Diagnose"/>
-                                <connections>
-                                    <action selector="diagnoseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="slk-RI-MJy"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Kkt-UM-90H" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1gl-Wi-rBI"/>
-                            <constraint firstItem="Kkt-UM-90H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="B9e-5t-qG7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5rI-7D-Zyg" secondAttribute="bottom" constant="8" id="DIl-ZU-Yuh"/>
-                            <constraint firstItem="Kkt-UM-90H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DZH-gD-aw0"/>
-                            <constraint firstItem="Kkt-UM-90H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="N7j-m9-5Ou"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kkt-UM-90H" secondAttribute="trailing" constant="-20" id="ORO-5t-AYd"/>
-                            <constraint firstItem="5rI-7D-Zyg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="U5W-2S-e3T"/>
-                            <constraint firstItem="5rI-7D-Zyg" firstAttribute="top" secondItem="Kkt-UM-90H" secondAttribute="bottom" constant="8" id="lGa-eu-KFi"/>
-                            <constraint firstItem="5rI-7D-Zyg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wzY-az-DNj"/>
-                            <constraint firstItem="Kkt-UM-90H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z3I-MC-H8y"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1gl-Wi-rBI"/>
-                                <exclude reference="DZH-gD-aw0"/>
-                                <exclude reference="N7j-m9-5Ou"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="cVH-Sx-fmZ"/>
-                    <connections>
-                        <outlet property="cameraView" destination="Kkt-UM-90H" id="Egm-S2-Sk6"/>
-                        <outlet property="diagnoseButton" destination="5rI-7D-Zyg" id="tnu-LF-SrT"/>
-                        <segue destination="CQS-oo-veW" kind="show" identifier="cameraToDetail" id="T7t-W2-Pyg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1622" y="320"/>
-        </scene>
         <!--Prev Diagnoses-->
         <scene sceneID="bVp-vz-iFa">
             <objects>
@@ -83,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ANE-nP-VbS" id="jOv-41-VP2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dysplastic Nevus: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-BO-twg">
@@ -254,7 +190,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTG-01-27c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="USG-4l-VeH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2305" y="320"/>
+            <point key="canvasLocation" x="1695" y="334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dzB-eS-p8a">
@@ -286,34 +222,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-MI-kxB">
-                                <rect key="frame" x="268" y="72" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-MI-kxB">
+                                <rect key="frame" x="268" y="338" width="65" height="30"/>
                                 <state key="normal" title="Diagnose"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="mainToCamera" id="C5G-SS-p4G"/>
+                                    <action selector="tapDiagnose:" destination="wNz-jz-ks7" eventType="touchUpInside" id="rVS-Fv-Vbf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyu-DY-3Up">
-                                <rect key="frame" x="241" y="126" width="118" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyu-DY-3Up">
+                                <rect key="frame" x="241" y="376" width="118" height="30"/>
                                 <state key="normal" title="Saved Diagnoses"/>
                                 <connections>
                                     <segue destination="rnu-Ax-M3N" kind="show" id="uM5-ZO-QRG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please center your mole in photo as shown." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-H3-0Tb">
+                                <rect key="frame" x="140" y="72" width="332" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6c6-EH-7Ml" customClass="MoleExampleView" customModule="Melanie" customModuleProvider="target">
+                                <rect key="frame" x="222" y="101" width="168" height="229"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Omz-MI-kxB" firstAttribute="top" secondItem="BJC-iQ-8oB" secondAttribute="bottom" constant="8" id="7wF-pd-lN5"/>
-                            <constraint firstItem="Cyu-DY-3Up" firstAttribute="top" secondItem="Omz-MI-kxB" secondAttribute="bottom" constant="24" id="IkH-HE-z7U"/>
-                            <constraint firstItem="Omz-MI-kxB" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="jTI-PH-j4a"/>
-                            <constraint firstItem="Cyu-DY-3Up" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="kQJ-gY-iOE"/>
+                            <constraint firstItem="Cyu-DY-3Up" firstAttribute="top" secondItem="Omz-MI-kxB" secondAttribute="bottom" constant="8" id="1m8-dH-gty"/>
+                            <constraint firstItem="6c6-EH-7Ml" firstAttribute="top" secondItem="B5p-H3-0Tb" secondAttribute="bottom" constant="8" id="FBN-9K-XwA"/>
+                            <constraint firstItem="B5p-H3-0Tb" firstAttribute="top" secondItem="BJC-iQ-8oB" secondAttribute="bottom" constant="8" id="Jgp-zD-xTa"/>
+                            <constraint firstItem="B5p-H3-0Tb" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="KXN-eA-Uyk"/>
+                            <constraint firstItem="6c6-EH-7Ml" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="PMY-y1-kOS"/>
+                            <constraint firstItem="Omz-MI-kxB" firstAttribute="top" secondItem="6c6-EH-7Ml" secondAttribute="bottom" constant="8" id="PhQ-TA-Eq4"/>
+                            <constraint firstItem="Omz-MI-kxB" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="ZrG-fF-KPc"/>
+                            <constraint firstItem="Cyu-DY-3Up" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="x64-Yx-uol"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Melanie" id="sp4-sM-sc3"/>
+                    <connections>
+                        <outlet property="moleExample" destination="6c6-EH-7Ml" id="5lK-Kd-9M8"/>
+                        <segue destination="CQS-oo-veW" kind="show" identifier="diagnoseMole" id="Gzq-yf-8ps"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fky-ef-cau" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="320"/>
+            <point key="canvasLocation" x="966" y="328"/>
         </scene>
     </scenes>
 </document>
