@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yok-jK-tt4">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yok-jK-tt4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ANE-nP-VbS" id="jOv-41-VP2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dysplastic Nevus: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-BO-twg">
@@ -76,6 +76,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wLY-7k-US3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1622" y="1101"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k5z-9l-9er">
+            <objects>
+                <viewController id="kOa-9R-UBm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o0O-iv-Nda"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZO0-wB-yRC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bup-vJ-vrI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nevus (Safe) - A birthmark or a mole on the skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-Wd-Xaw">
+                                <rect key="frame" x="20" y="89" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dysplastic Nevus (Safe) - nevus (mole) whose appearance is different from that of common moles" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-qf-3vv">
+                                <rect key="frame" x="20" y="135" width="560" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melanoma (Dangerous) - a tumor of melanin-forming cells, typically a malignant tumor associated with skin cancer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vA-Y8-9MF">
+                                <rect key="frame" x="20" y="201" width="560" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJK-GL-gbd">
+                                <rect key="frame" x="20" y="432" width="560" height="143"/>
+                                <string key="text">Our current networking code is perfectly functional for sending an image to a server and getting a response. However, for grading purposes, we will be returning mock data. This is due to the fact that we were only able to get the server running locally, and couldn't manage to get it hosted on Heroku or AWS in time.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p6a-Wd-Xaw" firstAttribute="leading" secondItem="Bup-vJ-vrI" secondAttribute="leadingMargin" id="0Vw-f0-a8q"/>
+                            <constraint firstItem="ICS-qf-3vv" firstAttribute="trailing" secondItem="Bup-vJ-vrI" secondAttribute="trailingMargin" id="517-cR-TC6"/>
+                            <constraint firstItem="1vA-Y8-9MF" firstAttribute="top" secondItem="ICS-qf-3vv" secondAttribute="bottom" constant="25" id="Chl-Kp-QUY"/>
+                            <constraint firstItem="ICS-qf-3vv" firstAttribute="top" secondItem="p6a-Wd-Xaw" secondAttribute="bottom" constant="25" id="Eq9-Tl-yhu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AJK-GL-gbd" secondAttribute="trailing" id="FLO-Zb-MOj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1vA-Y8-9MF" secondAttribute="trailing" id="RS5-Ee-pIv"/>
+                            <constraint firstItem="AJK-GL-gbd" firstAttribute="leading" secondItem="Bup-vJ-vrI" secondAttribute="leadingMargin" id="TWq-lS-ofP"/>
+                            <constraint firstItem="1vA-Y8-9MF" firstAttribute="leading" secondItem="Bup-vJ-vrI" secondAttribute="leadingMargin" id="Wel-n9-RhM"/>
+                            <constraint firstItem="ZO0-wB-yRC" firstAttribute="top" secondItem="AJK-GL-gbd" secondAttribute="bottom" constant="25" id="cUk-Vz-e11"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p6a-Wd-Xaw" secondAttribute="trailing" id="dWq-Sl-vZx"/>
+                            <constraint firstItem="ICS-qf-3vv" firstAttribute="leading" secondItem="Bup-vJ-vrI" secondAttribute="leadingMargin" id="hJb-jE-FoG"/>
+                            <constraint firstItem="p6a-Wd-Xaw" firstAttribute="top" secondItem="o0O-iv-Nda" secondAttribute="bottom" constant="25" id="wyb-Gr-ncw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqd-nr-aez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="1101"/>
         </scene>
         <!--Diagnosis View Controller-->
         <scene sceneID="fCP-SI-s8j">
@@ -246,6 +305,13 @@
                                 <rect key="frame" x="222" y="101" width="168" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ2-eB-OMX">
+                                <rect key="frame" x="241" y="414" width="118" height="30"/>
+                                <state key="normal" title="More Information"/>
+                                <connections>
+                                    <segue destination="kOa-9R-UBm" kind="show" id="PEH-Vx-T0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -255,7 +321,9 @@
                             <constraint firstItem="B5p-H3-0Tb" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="KXN-eA-Uyk"/>
                             <constraint firstItem="6c6-EH-7Ml" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="PMY-y1-kOS"/>
                             <constraint firstItem="Omz-MI-kxB" firstAttribute="top" secondItem="6c6-EH-7Ml" secondAttribute="bottom" constant="8" id="PhQ-TA-Eq4"/>
+                            <constraint firstItem="KQ2-eB-OMX" firstAttribute="top" secondItem="Cyu-DY-3Up" secondAttribute="bottom" constant="8" id="XbI-kd-sdw"/>
                             <constraint firstItem="Omz-MI-kxB" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="ZrG-fF-KPc"/>
+                            <constraint firstItem="KQ2-eB-OMX" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="qt3-CZ-RtT"/>
                             <constraint firstItem="Cyu-DY-3Up" firstAttribute="centerX" secondItem="RFU-vQ-d2W" secondAttribute="centerX" id="x64-Yx-uol"/>
                         </constraints>
                     </view>
